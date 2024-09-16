@@ -1,29 +1,27 @@
-# C# .NET 7 Minimal Web API 
-##### Example source code with simple CRUD Operations (PUT, POST, GET, DELETE) with Swagger/Open API 
+# AngularHelloWorld
 
-#### NOTE: Ongoing project 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-#### DESCRIPTION:
+## Development server
 
-Simple example in C# .NET 7 for minimal web APIs with basic CRUD operations and example data 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-##### MINIMAL APIs - ORIGIN AND WHAT?
+## Code scaffolding
 
-Minimal APIs are architected to create HTTP APIs with minimal dependencies. They are ideal for microservices and apps that want to include only the minimum files, features, and dependencies in ASP.NET Core. History of the minimal API traces back in November 2019.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-More details about it blogged on my website <a href="https://jonahandersson.tech/minimal-web-apis-in-net-and-azure-api-management-combined/" target="_blank">Minimal Web APIs in .NET and Azure API Management Combined</a>
+## Build
 
-Below is the image that shows how minimal API works with OpenAPI (Swagger)
-![alt text](https://github.com/jonahandersson/dotnet-minimal-web-api-example/blob/master/minimalAPIDemoExample.png )
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-OpenAPI (Swagger) Test Run Query Get Data that returns expected data in JSON format
-![image](https://user-images.githubusercontent.com/14919667/208229781-226b3a19-e1eb-41ba-b12b-e4abfe7ce303.png)
+## Running unit tests
 
-### REFERENCES, EXAMPLES AND QUICKSTARTS
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-- [Tutorial: Create a minimal web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio?WT.mc_id=AZ-MVP-5004251)
--  [Minimal Web APIs in .NET and Azure API Management Combined by Jonah Andersson](https://jonahandersson.tech/minimal-web-apis-in-net-and-azure-api-management-combined/)
-- [Microsoft Docs: Minimal APIs Overview](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0?WT.mc_id=AZ-MVP-5004251)
-- [Introduction to Minimal APIs in .NET 6 by Claudio Bernasconi](https://www.claudiobernasconi.ch/2022/02/23/introduction-to-minimal-apis-in-dotnet6/)
-- [Code Maze: Minimal APIs in .NET 6](https://code-maze.com/dotnet-minimal-api/)
-- [Code Maze:Configuring and Using Swagger UI in ASP.NET Core Web API](https://code-maze.com/swagger-ui-asp-net-core-web-api)
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
