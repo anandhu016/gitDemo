@@ -1,5 +1,5 @@
 SELECT
-    data.temp,data.timestamp,data.type
+    data.temp,data.humidity,data.timestamp,data.type
 INTO
     [encon]
 FROM
@@ -9,7 +9,7 @@ WHERE
 
 
 SELECT
-    data.temp,data.timestamp,data.type
+    data.temp,data.humidity,data.timestamp,data.type
 INTO
     [decon]
 FROM
