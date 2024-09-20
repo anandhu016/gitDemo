@@ -1,0 +1,22 @@
+{
+    "name": "temp-",
+    "startFile": "Transformation.asaql",
+    "configurations": [
+        {
+            "filePath": "JobConfig.json",
+            "subType": "JobConfig"
+        },
+        {
+            "filePath": "Outputs/encon.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Outputs/decon.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Inputs/azehub.json",
+            "subType": "Input"
+        }
+    ]
+}

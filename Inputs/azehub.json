@@ -1,0 +1,21 @@
+{
+    "Name": "azehub",
+    "Type": "Data Stream",
+    "DataSourceType": "Event Hub",
+    "EventHubProperties": {
+        "ServiceBusNamespace": "azehns",
+        "EventHubName": "azehub",
+        "SharedAccessPolicyName": "temp-_policy",
+        "SharedAccessPolicyKey": null,
+        "ConsumerGroupName": "temp-_consumer_group",
+        "AuthenticationMode": "ConnectionString"
+    },
+    "DataSourceCredentialDomain": "21b4af65-5104-48ca-9673-e4149d9602a0.StreamAnalystics",
+    "Serialization": {
+        "Type": "Json",
+        "Encoding": "UTF8"
+    },
+    "PartitionKey": null,
+    "CompressionType": "None",
+    "ScriptType": "Input"
+}

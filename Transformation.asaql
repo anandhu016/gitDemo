@@ -1,0 +1,18 @@
+SELECT
+    data.temp,data.timestamp,data.type
+INTO
+    [encon]
+FROM
+    [azehub]
+WHERE 
+    data.type='encrypted'
+
+
+SELECT
+    data.temp,data.timestamp,data.type
+INTO
+    [decon]
+FROM
+    [azehub]
+WHERE 
+    data.type='decrypted'
