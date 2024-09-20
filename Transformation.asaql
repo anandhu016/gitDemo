@@ -1,6 +1,0 @@
-SELECT
-    data.temp,data.timestamp
-INTO
-    [con]
-FROM
-    [azehub]
