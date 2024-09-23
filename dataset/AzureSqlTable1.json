@@ -1,0 +1,30 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OutputSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "temp",
+				"type": "varchar"
+			},
+			{
+				"name": "humidity",
+				"type": "varchar"
+			},
+			{
+				"name": "timestamp",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "data"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
