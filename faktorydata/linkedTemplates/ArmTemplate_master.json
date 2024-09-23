@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "faktorydata"
+		},
+		"InputBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'InputBlobStorage1'"
+		},
+		"OutputSqlDatabase1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OutputSqlDatabase1'"
+		},
+		"OutputSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqldser.database.windows.net"
+		},
+		"OutputSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "datastr"
+		},
+		"OutputSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin@"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "faktorydata_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"InputBlobStorage1_connectionString": {
+						"value": "[parameters('InputBlobStorage1_connectionString')]"
+					},
+					"OutputSqlDatabase1_password": {
+						"value": "[parameters('OutputSqlDatabase1_password')]"
+					},
+					"OutputSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('OutputSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"OutputSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('OutputSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"OutputSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('OutputSqlDatabase1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
