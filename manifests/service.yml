@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: samplewebapp
+    name: Training-Anand
 spec:
     type: LoadBalancer
     ports:
     - port: 80 
     selector:
-        app: samplewebapp
+        app: Training-Anand
