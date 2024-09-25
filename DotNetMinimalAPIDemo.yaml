@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnetminimalapidemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnetminimalapidemo
+  template:
+    metadata:
+      labels:
+        app: dotnetminimalapidemo
+    spec:
+      containers:
+      - name: dotnetminimalapidemo
+        image: $[ContainerRegistryName].azurecr.io/dotnetminimalapidemo:$[Build.BuildNumber]
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: sphereiotdockersecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnetminimalapidemo
+spec:
+  ports:
+  - port: 8088
+    targetPort: 8080
+  selector:
+    app: dotnetminimalapidemo
