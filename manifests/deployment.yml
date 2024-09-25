@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: samplewebapp 
+  name: Training-Anand 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: samplewebapp
+      app: Training-Anand
   template:
     metadata:
       labels:
-        app: samplewebapp 
+        app: Training-Anand 
     spec:
       containers:
-        - name: samplewebapp 
-          image: devopsmelacr.azurecr.io/samplewebapp
+        - name: Training-Anand 
+          image: devopsmelacr.azurecr.io/Training-Anand
           ports:
           - containerPort: 80
