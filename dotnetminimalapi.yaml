@@ -35,6 +35,7 @@ kind: Service
 metadata:
   name: ciceconrepo-svc
 spec:
+  type: LoadBalancer  # Added LoadBalancer type
   ports:
   - port: 8088
     targetPort: 8080
