@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ciceconrepo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ciceconrepo
+  template:
+    metadata:
+      labels:
+        app: ciceconrepo
+    spec:
+      containers:
+      - name: ciceconrepo
+        image: $[ContainerRegistryName].azurecr.io/ciceconrepo:$[Build.BuildNumber]
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        securityContext:
+          runAsUser: 1000
+      imagePullSecrets:
+        - name: condevrsc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ciceconrepo-svc
+spec:
+  ports:
+  - port: 8088
+    targetPort: 8080
+  selector:
+    app: ciceconrepo
