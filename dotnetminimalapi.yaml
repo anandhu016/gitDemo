@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ciceconrepo
-        image: condevrsc.azurecr.io/ciceconrepo:6465372
+        image: condevrsc.azurecr.io/ciceconrepo:6465446
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
