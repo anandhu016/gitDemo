@@ -25,7 +25,7 @@ RUN touch /var/run/nginx.pid && \
   chown -R 1000 /usr/share/nginx && \
   chmod 777 -R /tmp && chmod o+t -R /tmp
 
-COPY --from=build /src/app/dist/EY-IOT-Sphere-CG /usr/share/nginx/html
+COPY --from=build /src/app/dist/angular-hello-world /usr/share/nginx/html
 
 
 #Switch to nginx user
