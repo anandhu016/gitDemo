@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: angular-hello-world
+  template:
+    metadata:
+      labels:
+        app: angular-hello-world
+    spec:
+      containers:
+      - name: angular-hello-world
+        image: condevrsc.azurecr.io/angularapp:v1
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: "600m"
+            memory: "2Gi"
+          requests:
+            cpu: "300m"
+            memory: "1Gi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 1000
+      imagePullSecrets:
+        - name: sphereiotimagesecret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-hello-world-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: angular-hello-world
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: angular-hello-world
+  labels:
+    app: angular-hello-world
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: angular-hello-world
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 75
