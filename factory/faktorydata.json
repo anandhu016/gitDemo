@@ -1,9 +1,0 @@
-{
-	"name": "faktorydata",
-	"location": "eastus",
-	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "0ac8ab74-eed2-4217-b7c1-6548b68642f5",
-		"tenantId": "5b973f99-77df-4beb-b27d-aa0c70b8482c"
-	}
-}
