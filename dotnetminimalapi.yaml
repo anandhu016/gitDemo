@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: conrepo
-        image: condev08.azurecr.io/conrepo:6573909
+        image: condev08.azurecr.io/conrepo:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
