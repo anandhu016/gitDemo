@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ciceconrepo
+  name: conrepo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ciceconrepo
+      app: conrepo
   template:
     metadata:
       labels:
-        app: ciceconrepo
+        app: conrepo
     spec:
       containers:
-      - name: ciceconrepo
-        image: condevrsc.azurecr.io/ciceconrepo:6465446
+      - name: conrepo
+        image: condev08.azurecr.io/conrepo:6573909
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -40,4 +40,4 @@ spec:
   - port: 8088
     targetPort: 8080
   selector:
-    app: ciceconrepo
+    app: conrepo
