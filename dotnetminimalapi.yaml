@@ -29,7 +29,7 @@ spec:
           runAsUser: 1000
       spec:
     imagePullSecrets:
-    - name: acr-auth
+      - name: acr-auth
 
 ---
 apiVersion: v1
