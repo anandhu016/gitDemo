@@ -27,8 +27,7 @@ spec:
             memory: 256Mi
         securityContext:
           runAsUser: 1000
-      imagePullSecrets:
-        - name: condevrsc
+      
 ---
 apiVersion: v1
 kind: Service
