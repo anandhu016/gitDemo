@@ -27,7 +27,10 @@ spec:
             memory: 256Mi
         securityContext:
           runAsUser: 1000
-      
+      spec:
+    imagePullSecrets:
+    - name: acr-auth
+
 ---
 apiVersion: v1
 kind: Service
