@@ -4,7 +4,7 @@ pr: none
 variables:
 - name: docker-file-path
   ${{ if or(eq(variables['Build.SourceBranchName'], 'develop'), eq(variables['Build.SourceBranchName'], 'release')) }}:
-    value: 'IoTSphere.AssetManagement/Dockerfile-IoTSphere-Core-AssetManagement-API'
+    value: 'Training-Anand/Dockerfile'
   ${{ else }}: 
     value: 'incorrect branch selected: $(Build.SourceBranchName)'
 - name: acr-repository
@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       displayName: build image
       inputs:
-        containerRegistry: $(acr-connection)
+        containerRegistry: training-Anand
         repository: $(acr-repository)
         command: 'build'
         Dockerfile: $(docker-file-path)
