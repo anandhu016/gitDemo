@@ -1,0 +1,46 @@
+trigger: none
+pr: none
+
+variables:
+- name: docker-file-path
+  ${{ if or(eq(variables['Build.SourceBranchName'], 'develop'), eq(variables['Build.SourceBranchName'], 'release')) }}:
+    value: 'IoTSphere.AssetManagement/Dockerfile-IoTSphere-Core-AssetManagement-API'
+  ${{ else }}: 
+    value: 'incorrect branch selected: $(Build.SourceBranchName)'
+- name: acr-repository
+  value: 'scpmicroservices/iotsphere-core-assetmanagement-api'
+- name: docker-build-context
+  value: 'IoTSphere.AssetManagement'
+
+pool:
+  name: Azure Pipelines
+  vmImage: ubuntu-latest
+
+stages:
+- stage: buildpushdeploydockerimage
+  jobs:
+  - job: buildpushdeploydockerimagejob
+    steps:
+    - task: Docker@2
+      displayName: build image
+      inputs:
+        containerRegistry: $(acr-connection)
+        repository: $(acr-repository)
+        command: 'build'
+        Dockerfile: $(docker-file-path)
+        buildContext: $(docker-build-context)
+        tags: |
+          $(Build.BuildId)
+          $(docker-default-image-tag)
+
+    - task: Docker@2
+      displayName: push image
+      inputs:
+        containerRegistry: training-Anand
+        repository: $(acr-repository)
+        command: push
+        tags: |
+         $(Build.BuildId)
+         $(docker-default-image-tag)
+
+   
